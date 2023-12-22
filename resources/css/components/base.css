@@ -1,0 +1,15 @@
+.plr4{
+    padding: 0 60px;
+}
+.df{
+    display: flex;
+}
+.jcsb{
+    justify-content: space-between;
+}
+.aic{
+    align-items: center;
+}
+.fdc{
+    flex-direction: column;
+}

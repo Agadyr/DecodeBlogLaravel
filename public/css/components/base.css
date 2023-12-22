@@ -1,0 +1,24 @@
+.plr4{
+    padding: 0 120px;
+}
+.plr2{
+    padding: 0 30px;
+}
+.pt1{
+    padding-top:20px ;
+}
+.pb1{
+    padding-bottom: 20px !important;
+}
+.df{
+    display: flex;
+}
+.jcsb{
+    justify-content: space-between;
+}
+.aic{
+    align-items: center;
+}
+.fdc{
+    flex-direction: column;
+}

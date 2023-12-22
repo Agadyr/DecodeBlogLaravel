@@ -1,0 +1,62 @@
+.post-cards{
+    width: 65%;
+    background-color: #fff;
+    margin-top: 40px;
+    padding: 0 60px;
+}
+
+.post-cards h1{
+    padding-top: 15px;
+    font-size: 36px;
+    font-weight: 500;
+    text-align: center;
+}
+.default-title{
+    text-align: center;
+    width: 100%;
+    padding: 30px 0;
+}
+.title{
+    font-size: 28px;
+    font-weight: 400;
+    padding: 15px 0;
+}
+
+.about-post{
+    padding: 20px 0;
+}
+.g3{
+    gap: 15px;
+}
+.fill{
+    margin-left: 10px;
+}
+.description{
+    padding-bottom: 20px;
+}
+.post-img{
+    width: 100%;
+}
+.category-cards h1{
+    font-weight: 500;
+    font-size: 36px;
+    padding: 30px 0;
+}
+.category-cards{
+    margin-top: 40px;
+    padding-left: 20px;
+    height: max-content;
+    width: 20%;
+    background-color: #fff;
+    -webkit-box-shadow: 1px 4px 8px 0px rgba(34, 60, 80, 0.2);
+    -moz-box-shadow: 1px 4px 8px 0px rgba(34, 60, 80, 0.2);
+    box-shadow: 1px 4px 8px 0px rgba(34, 60, 80, 0.2);
+}
+.category-item{
+    padding: 13px 0;
+    display: block;
+    text-decoration: none;
+    font-weight: 500;
+    color: #007BFF;
+    border-bottom: 1px solid #E7E7E7;
+}
