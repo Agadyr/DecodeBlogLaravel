@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="../../css/all.css">
 </head>
 <body>
-@include('personal.includes.header')
+@include('includes.header')
 <div class="plr4 df jcsb g3">
     <div class="post-cards">
         <div class="My-blogs df jcsb aic" style="margin: 20px 0">

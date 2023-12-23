@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Testing\Fluent\Concerns\Has;
 
-class StoreController extends Controller
+class RegisterStoreController extends Controller
 {
     public function __invoke(Request $request)
     {

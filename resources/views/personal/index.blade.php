@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="../../css/all.css">
 </head>
 <body>
-@include('personal.includes.header')
+@include('includes.header')
 <div class="plr4 df jcsb g3">
     <div class="post-cards">
         <div class="My-blogs df jcsb aic" style="margin: 20px 0">
@@ -98,7 +98,14 @@
         <h2>Елнур Сеитжанов</h2>
         <p class="ptb2">В основно пишу про веб разработку React & Redux</p>
         <p>285 постов за все время</p>
-        <button class="button-primary mtb2" style="padding: 14px 17px!important;">Редактировать</button>
+        <div class="df flex-d aic">
+            <button class="button-primary mt2 mb1" style="padding: 14px 17px!important;">Редактировать</button>
+            <form action="{{route('logout')}}" method="post">
+                @csrf
+                <button type="submit" class="button-primary " style="padding: 14px 17px!important;background-color: red;margin-bottom: 20px">Выйти</button>
+            </form>
+        </div>
+
     </div>
 </div>
 <script>

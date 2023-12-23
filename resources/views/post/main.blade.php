@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="../../css/all.css">
 </head>
 <body>
-    @include('post.includes.header')
+    @include('includes.header')
     <div class="plr4 df jcsb g3">
         <div class="post-cards">
             <h1>Блоги по программированию</h1>

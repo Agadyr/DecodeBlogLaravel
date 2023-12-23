@@ -30,6 +30,12 @@ Route::group(['namespace' => 'Personal','prefix'=>'personal','middleware'=>'auth
     Route::post('/posts', 'StoreController');
 });
 Route::group(['namespace' => 'Auth','middleware'=>'guest'], function () {
-    Route::get('/register', 'IndexController')->name('register');
-    Route::post('/register', 'StoreController')->name('register.store');
+    Route::get('/register', 'RegisterController')->name('register');
+    Route::post('/register', 'RegisterStoreController')->name('register.store');
+    Route::get('/login', 'LoginController')->name('login');
+    Route::post('/login', 'LoginStoreController')->name('login.store');
+
+});
+Route::group(['namespace' => 'Auth', 'middleware' => 'auth'], function () {
+    Route::post('/logout', 'LogoutController')->name('logout');
 });

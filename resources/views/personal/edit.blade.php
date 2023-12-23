@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="../../css/all.css">
 </head>
 <body>
-@include('personal.includes.header')
+@include('includes.header')
 <div class="plr4 df jcsb g3 create-post">
     <div class="post-cards">
             <h1 style="padding: 0!important;text-align: left">Новый блог</h1>

@@ -10,31 +10,48 @@
     <link rel="stylesheet" href="../../css/all.css">
 </head>
 <body>
-@include('auth.includes.header')
+@include('includes.header')
 <div class="register">
-    <form class="register-form" action="{{route("register.store")}}" method="post" novalidate>
+    <form class="register-form" action="{{route("register.store")}}" method="post" >
         @csrf
         <h1>Регистрация</h1>
-        <input class="{{$errors->has('email') ? 'input-red':'input-reg'}}"  name="email" placeholder="Введите email">
+        <div class="reg-div">
+            <input class="{{$errors->has('email') ? 'input-red':'input-reg'}}" name="email" placeholder="Введите email" value="{{old('email')}}">
+            <i class="fa-regular fa-envelope {{$errors->has('email') ? 'icon-red' : 'icon-reg'}}"></i>
+        </div>
         @error('email')
         <p class="error">{{$message}}</p>
         @enderror
-        <input class="{{$errors->has('name') ? 'input-red':'input-reg'}}" name="name" placeholder="Введите полное имя">
+        <div class="reg-div">
+            <input class="{{$errors->has('name') ? 'input-red':'input-reg'}}" name="name"
+                   value="{{old('name')}}"
+                   placeholder="Введите полное имя">
+            <i class="fa-regular fa-user {{$errors->has('password') ? 'icon-red' : 'icon-reg'}}"></i>
+        </div>
         @error('name')
         <p class="error">{{$message}}</p>
         @enderror
-        <input class="{{$errors->has('password') ? "input-red":"input-reg"}}" name="password" placeholder="Введите пароль">
+        <div class="reg-div">
+            <input type="password" class="{{$errors->has('password') ? "input-red":"input-reg"}}" name="password"
+                   placeholder="Введите пароль">
+            <i class="fa-solid fa-lock {{$errors->has('name') ? 'icon-red' : 'icon-reg'}}"></i>
+        </div>
         @error('password')
         <p class="error">{{$message}}</p>
         @enderror
-        <input class="{{$errors->has('password_confirmation') ? 'input-red' : 'input-reg'}}" name="password_confirmation" placeholder="Потвердите пароль">
+        <div class="reg-div">
+            <input type="password" class="{{$errors->has('password_confirmation') ? 'input-red' : 'input-reg'}}"
+                   name="password_confirmation" placeholder="Потвердите пароль">
+            <i class="fa-solid fa-lock {{$errors->has('password_confirmation') ? 'icon-red' : 'icon-reg'}}"></i>
+        </div>
         @error('password_confirmation')
         <p class="error">{{$message}}</p>
         @enderror
+
         <button type="submit" class="button-primary mtb2" style="width: 100%">Зарегистрироваться</button>
 
     </form>
 </div>
-
+<script src="https://kit.fontawesome.com/46e5ccd8d3.js" crossorigin="anonymous"></script>
 </body>
 </html>
