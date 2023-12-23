@@ -1,0 +1,42 @@
+.post-create-form{
+    width: 50%;
+}
+.w1{
+    width: 100%;
+    display: block;
+}
+
+.post-create-form input,select,textarea{
+    font-weight: 500;
+    border: 1px solid #dedede;
+    padding: 10px;
+    margin-top: 20px;
+    margin-bottom: 15px;
+    color: #0000008A;
+}
+.post-create-form select>option{
+    border-radius: 0 4px 0 4px;
+}
+.post-create-form textarea{
+    font-family: 'Roboto', sans-serif;
+    resize: none;
+    height: 150px;
+    box-sizing: border-box;
+}
+.upload-btn{
+    position: relative;
+    padding: 8px 17px;
+    border-radius: 4px;
+    background-color: #FFF72F;
+}
+.file{
+    position: absolute;
+    width: 100%;
+    border: none;
+    z-index: 4;
+    inset: 0;
+    opacity: 0;
+    padding: 0 !important;
+    margin: 0!important;
+
+}

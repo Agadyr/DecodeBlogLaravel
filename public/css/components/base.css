@@ -1,3 +1,17 @@
+.button-primary{
+    padding: 10px 7px;
+    background-color: #00A2DC;
+    color: #fff;
+    border: none;
+    font-weight: 400;
+    border-radius: 4px;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+input{
+    box-sizing: border-box;
+    outline: none;
+}
 .plr4{
     padding: 0 120px;
 }
@@ -10,6 +24,21 @@
 .pb1{
     padding-bottom: 20px !important;
 }
+.ptb2{
+    padding: 20px 0;
+}
+.mtb2{
+    margin: 20px 0;
+}
+.mr2{
+    margin-right: 30px;
+}
+.g3{
+    gap: 15px;
+}
+.g2{
+    gap: 10px;
+}
 .df{
     display: flex;
 }
@@ -21,4 +50,10 @@
 }
 .fdc{
     flex-direction: column;
+}
+.error{
+    text-align: left;
+    color: red;
+    font-size: 12px;
+    margin-top: 5px;
 }
