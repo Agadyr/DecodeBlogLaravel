@@ -17,8 +17,9 @@
                 <h1></h1>
                 <p class="default-title"></p>
                 <div>
-                    <img class="post-img pt1" src="{{asset('storage/'.$post->image)}}" style="width: 100%;height: 400px;object-fit: contain;">
-
+                    <a href="{{route('post.show',$post->id)}}">
+                        <img class="post-img pt1" src="{{asset('storage/'.$post->image)}}" style="width: 100%;height: 400px;object-fit: cover;">
+                    </a>
                     <h2 class="title">{{$post->title}}</h2>
                     <p class="description">{{$post->content}} </p>
                     <div class="about-post df jcsb aic">

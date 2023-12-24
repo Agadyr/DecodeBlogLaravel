@@ -13,30 +13,36 @@
 @include('includes.header')
 <div class="plr4 df jcsb g3">
     <div class="post-cards">
-        <div class="My-blogs df jcsb aic" style="margin: 20px 0">
-            <h1 style="padding: 0!important;">Мои блоги</h1>
-            <button class="button-primary">Новый блог</button>
-        </div>
+
 
         <div>
-            <img class="post-img pt1" src="{{asset('storage/'.$post->image)}}">
-            <div class="settings df jcsb aic">
-                <h2 class="title">{{$post->title}}</h2>
-                <div class="df jcsb aic g2 more-icon">
-                    <img src="{{asset('images/morevertical.svg')}}" style="cursor:pointer;" onclick="ToggleMenu()">
-                    <p>Еще</p>
-                    <div class="more-card g3">
-                        <a href="{{route('personal.post.edit',$post->id)}}" class="more-link" style="color: black;font-weight: 500;">Редактировать{{$post->id}}</a>
-                        <form action="{{route('personal.post.delete',$post->id)}} " method="POST">
-                            @csrf
-                            @method('DELETE')
-                            <button href="" style="color: red;font-weight: 500;margin-bottom: 10px;">Удалить
-                            </button>
-                        </form>
-                    </div>
-                </div>
+            <img class="post-img pt1" src="{{asset('storage/'.$post->image)}}"
+                 style="max-width: 861px;width: 100%;height: 400px;object-fit: cover;">
 
-            </div>
+
+                    <div class="settings df jcsb aic">
+                        <h2 class="title">{{$post->title}}</h2>
+                        @auth()
+                            @if(Auth()->user()->name == $post->user->name)
+                        <div class="df jcsb aic g2 more-icon">
+                            <img src="{{asset('images/morevertical.svg')}}" style="cursor:pointer;"
+                                 onclick="ToggleMenu()">
+                            <p>Еще</p>
+                            <div class="more-card g3">
+                                <a href="{{route('personal.post.edit',$post->id)}}" class="more-link"
+                                   style="color: black;font-weight: 500;">Редактировать{{$post->id}}</a>
+                                <form action="{{route('personal.post.delete',$post->id)}} " method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button href="" style="color: red;font-weight: 500;margin-bottom: 10px;">Удалить
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                            @endif
+                        @endauth
+                    </div>
+
 
             <p class="description">{{$post->content}} </p>
             <div class="about-post df jcsb aic">
@@ -67,7 +73,8 @@
                     <img src="{{asset('images/ava.png')}}" style="width: 50px;" class="mr2">
                     <h2>Елнур Сеитжанов</h2>
                 </div>
-                <p class="mtb2">В отличие от обычных виджетов пользовательского интерфейса JavaScript, комплексные виджеты -
+                <p class="mtb2">В отличие от обычных виджетов пользовательского интерфейса JavaScript, комплексные
+                    виджеты -
                     это полноценные приложения, которые не требуют дополнительной настройки и кастомизации.
                 </p>
 
@@ -75,7 +82,8 @@
                     <img src="{{asset('images/ava.png')}}" style="width: 50px;" class="mr2">
                     <h2>Елнур Сеитжанов</h2>
                 </div>
-                <p class="mtb2">В отличие от обычных виджетов пользовательского интерфейса JavaScript, комплексные виджеты -
+                <p class="mtb2">В отличие от обычных виджетов пользовательского интерфейса JavaScript, комплексные
+                    виджеты -
                     это полноценные приложения, которые не требуют дополнительной настройки и кастомизации.
                 </p>
             </div>
@@ -86,7 +94,7 @@
             </form>
         </div>
     </div>
-    <div class="category-cards" >
+    <div class="category-cards">
         <h1>Категории</h1>
         <a class="category-item" href="#">Прогнозы в IT</a>
         <a class="category-item" href="#">Веб-разработка</a>
@@ -102,7 +110,7 @@
 </div>
 <script>
 
-    function ToggleMenu(){
+    function ToggleMenu() {
         let drop1 = document.querySelector('.more-card')
         if (drop1.style.display === 'none' || drop1.style.display === '') {
             drop1.style.display = 'block';

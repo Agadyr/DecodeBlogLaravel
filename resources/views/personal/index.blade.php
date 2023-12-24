@@ -23,8 +23,10 @@
         @foreach($posts as $post)
 
             <div>
-                <img class="post-img pt1" src="{{asset('storage/'.$post->image)}}"
-                     style="width: 100%;height: 300px;object-fit: contain;">
+                <a href="{{route('personal.post.show',$post->id)}}">
+                    <img class="post-img pt1" src="{{asset('storage/'.$post->image)}}"
+                         style="width: 100%;height: 300px;object-fit: contain;">
+                </a>
                 <div class="settings df jcsb aic">
                     <h2 class="title">{{$post->title}}</h2>
                     <div class="df jcsb aic g2 more-icon">

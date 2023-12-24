@@ -13,19 +13,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('post.main');
-});
 
 Route::group(['namespace' => 'Posts','prefix'=>'home'], function () {
     Route::get('/posts', 'IndexController')->name('posts');
+    Route::get('/{post}', 'ShowController')->name('post.show');
 
 });
 
 
 Route::group(['namespace' => 'Personal','prefix'=>'personal','middleware'=>'auth'], function () {
     Route::get('/posts', 'IndexController')->name('personal.posts');
-    Route::get('/post/id', 'ShowController');
+    Route::get('/post/{post}', 'ShowController')->name('personal.post.show');
     Route::get('/post/create', 'CreateController')->name('personal.post.create');
     Route::post('/posts', 'StoreController')->name('personal.post.store');
     Route::delete('/posts/{post}', 'DeleteController')->name('personal.post.delete');
