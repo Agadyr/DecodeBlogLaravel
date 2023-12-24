@@ -23,9 +23,8 @@
         @foreach($posts as $post)
 
             <div>
-
-
-                <img class="post-img pt1" src="{{asset('storage/'.$post->image)}}" style="width: 100%;height: 300px;object-fit: contain;">
+                <img class="post-img pt1" src="{{asset('storage/'.$post->image)}}"
+                     style="width: 100%;height: 300px;object-fit: contain;">
                 <div class="settings df jcsb aic">
                     <h2 class="title">{{$post->title}}</h2>
                     <div class="df jcsb aic g2 more-icon">
@@ -33,11 +32,12 @@
                              onclick="ToggleMenu(this)">
                         <p>Еще</p>
                         <div class="more-card g3">
-                            <a class="more-link" style="color: black;font-weight: 500;">Редактировать{{$post->id}}</a>
+                            <a href="{{route('personal.post.edit',$post->id)}}" class="more-link" style="color: black;font-weight: 500;">Редактировать{{$post->id}}</a>
                             <form action="{{route('personal.post.delete',$post->id)}} " method="POST">
                                 @csrf
                                 @method('DELETE')
-                                <button href="" style="color: red;font-weight: 500;margin-bottom: 10px;">Удалить</button>
+                                <button href="" style="color: red;font-weight: 500;margin-bottom: 10px;">Удалить
+                                </button>
                             </form>
                         </div>
                     </div>
@@ -48,7 +48,7 @@
                 <div class="about-post df jcsb aic">
                     <div class="calendar df jcsb aic g3">
                         <img src="{{asset('/images/calendar.svg')}}">
-                            <h3>{{$post->created_at->month}}.{{$post->created_at->day}}.{{$post->created_at->year}}</h3>
+                        <h3>{{$post->updated_at->month}}.{{$post->updated_at->day}}.{{$post->updated_at->year}}</h3>
                     </div>
                     <div class="eye df jcsb aic g3">
                         <img src="{{asset('/images/eye.svg')}}">

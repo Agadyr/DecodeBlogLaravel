@@ -15,11 +15,11 @@ class IndexController extends Controller
     public function __invoke()
     {
         $posts = auth()->user()->posts;
-        $createData = Post::all()->pluck('created_at');
+        $updated_at = Post::all()->pluck('created_at');
         foreach ($posts as $post) {
-            $post->created_at = Carbon::parse($post->created_at);
+            $post->updated_at = Carbon::parse($post->updated_at);
         }
 
-        return view('personal.index', compact('posts', 'createData'));
+        return view('personal.index', compact('posts', 'updated_at'));
     }
 }
