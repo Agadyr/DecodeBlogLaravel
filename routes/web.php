@@ -26,8 +26,8 @@ Route::group(['namespace' => 'Posts','prefix'=>'home'], function () {
 Route::group(['namespace' => 'Personal','prefix'=>'personal','middleware'=>'auth'], function () {
     Route::get('/posts', 'IndexController')->name('personal.posts');
     Route::get('/post/id', 'ShowController');
-    Route::get('/post/id/create', 'CreateController');
-    Route::post('/posts', 'StoreController');
+    Route::get('/post/create', 'CreateController')->name('personal.post.create');
+    Route::post('/posts', 'StoreController')->name('personal.post.store');
 });
 Route::group(['namespace' => 'Auth','middleware'=>'guest'], function () {
     Route::get('/register', 'RegisterController')->name('register');

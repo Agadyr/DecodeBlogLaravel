@@ -15,49 +15,52 @@
     <div class="post-cards">
         <div class="My-blogs df jcsb aic" style="margin: 20px 0">
             <h1 style="padding: 0!important;">Мои блоги</h1>
-            <button class="button-primary">Новый блог</button>
+            <a href="{{route('personal.post.create')}}" class="button-primary">Новый блог</a>
         </div>
         @foreach($posts as $post)
 
-        <div>
-            <img class="post-img pt1" src="{{asset('/images/post1.png')}}">
-            <div class="settings df jcsb aic">
-                <h2 class="title">{{$post->title}}</h2>
-                <div class="df jcsb aic g2 more-icon">
-                    <img src="{{asset('images/morevertical.svg')}}" style="cursor:pointer;" onclick="ToggleMenu(this)">
-                    <p>Еще</p>
-                    <div class="more-card g3">
-                        <button style="color: black;font-weight: 500;">Редактировать{{$post->id}}</button>
-                        <button style="color: red;font-weight: 500;">Удалить</button>
+            <div>
+                <img class="post-img pt1" src="{{asset('/images/post1.png')}}">
+                <div class="settings df jcsb aic">
+                    <h2 class="title">{{$post->title}}</h2>
+                    <div class="df jcsb aic g2 more-icon">
+                        <img src="{{asset('images/morevertical.svg')}}" style="cursor:pointer;"
+                             onclick="ToggleMenu(this)">
+                        <p>Еще</p>
+                        <div class="more-card g3">
+                            <button style="color: black;font-weight: 500;">Редактировать{{$post->id}}</button>
+                            <button style="color: red;font-weight: 500;">Удалить</button>
+                        </div>
+                    </div>
+
+                </div>
+
+                <p class="description">{{$post->content}}</p>
+                <div class="about-post df jcsb aic">
+                    <div class="calendar df jcsb aic g3">
+                        <img src="{{asset('/images/calendar.svg')}}">
+                        <h3>26.06.20</h3>
+                    </div>
+                    <div class="eye df jcsb aic g3">
+                        <img src="{{asset('/images/eye.svg')}}">
+                        <h3>21</h3>
+                    </div>
+                    <div class="comment df jcsb aic g3">
+                        <img src="{{asset('/images/comment.svg')}}">
+                        <h3>4</h3>
+                    </div>
+                    <div class="fill df jcsb aic g3">
+                        <img src="{{asset('/images/fill.svg')}}">
+                        <h3>
+                            {{$post->category->title}}
+                        </h3>
+                    </div>
+                    <div class="usersShow df jcsb aic g3">
+                        <img src="{{asset('/images/Vector.svg')}}">
+                        <h3>{{auth()->user()->name}}</h3>
                     </div>
                 </div>
-
             </div>
-
-            <p class="description">{{$post->content}}</p>
-            <div class="about-post df jcsb aic">
-                <div class="calendar df jcsb aic g3">
-                    <img src="{{asset('/images/calendar.svg')}}">
-                    <h3>26.06.20</h3>
-                </div>
-                <div class="eye df jcsb aic g3">
-                    <img src="{{asset('/images/eye.svg')}}">
-                    <h3>21</h3>
-                </div>
-                <div class="comment df jcsb aic g3">
-                    <img src="{{asset('/images/comment.svg')}}">
-                    <h3>4</h3>
-                </div>
-                <div class="fill df jcsb aic g3">
-                    <img src="{{asset('/images/fill.svg')}}">
-                    <h3>{{$post->category->title}}</h3>
-                </div>
-                <div class="usersShow df jcsb aic g3">
-                    <img src="{{asset('/images/Vector.svg')}}">
-                    <h3>{{auth()->user()->name}}</h3>
-                </div>
-            </div>
-        </div>
         @endforeach
     </div>
     <div class="category-cards" style="text-align: center">
@@ -69,7 +72,9 @@
             <button class="button-primary mt2 mb1" style="padding: 14px 17px!important;">Редактировать</button>
             <form action="{{route('logout')}}" method="post">
                 @csrf
-                <button type="submit" class="button-primary " style="padding: 14px 17px!important;background-color: red;margin-bottom: 20px">Выйти</button>
+                <button type="submit" class="button-primary "
+                        style="padding: 14px 17px!important;background-color: red;margin-bottom: 20px">Выйти
+                </button>
             </form>
         </div>
 
@@ -77,7 +82,7 @@
 </div>
 <script>
 
-    function ToggleMenu(icon){
+    function ToggleMenu(icon) {
         let drop1 = icon.nextElementSibling.nextElementSibling;
         if (drop1.style.display === 'none' || drop1.style.display === '') {
             drop1.style.display = 'block';

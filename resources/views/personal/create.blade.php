@@ -15,20 +15,34 @@
 <div class="plr4 df jcsb g3 create-post">
     <div class="post-cards " style="width: 100%;height: 100vh">
         <h1 style="padding: 0!important;text-align: left">Новый блог</h1>
-        <form class="post-create-form">
-            <input placeholder="Введите заголовок блога" class="w1">
-            <select id="category" class="w1">
+        <form class="post-create-form" action="{{route('personal.post.store')}}" method="POST" enctype="multipart/form-data" >
+            @csrf
+            <input placeholder="Введите заголовок блога" class="w1" name="title">
+            @error('title')
+            <p class="error">{{$message}}</p>
+            @enderror
+            <select id="category" class="w1" name="category_id">
                 <option value="Выберите Категорию" selected disabled>Выберите категорию</option>
-                <option value="Коты">Коты</option>
-                <option value="Собаки">Собаки</option>
-                <option value="Мышки">Мышки</option>
+                @foreach($categories as $category)
+                    <option
+                        {{$category->id == old('category_id') ? 'selected' : ''}}
+                        value="{{$category->id}}">{{$category->title}}</option>
+                @endforeach
             </select>
+            @error('category')
+            <p class="error">{{$message}}</p>
+            @enderror
             <button type="button" class="upload-btn">
                 Выберите картинку
-                <input type="file" class="file">
+                <input type="file" class="file" name="image">
             </button>
-
-            <textarea placeholder="Введите описание блога" class="w1"></textarea>
+            @error('image')
+            <p class="error">{{$message}}</p>
+            @enderror
+            <textarea placeholder="Введите описание блога" class="w1" name="content"></textarea>
+            @error('content')
+            <p class="error" style="margin-bottom: 10px">{{$message}}</p>
+            @enderror
             <button type="submit" class="button-primary">Создать</button>
         </form>
     </div>
