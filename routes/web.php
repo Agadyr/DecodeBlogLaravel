@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('post.main');
 });
 
 Route::group(['namespace' => 'Posts','prefix'=>'home'], function () {
