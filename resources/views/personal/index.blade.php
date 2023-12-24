@@ -17,14 +17,19 @@
             <h1 style="padding: 0!important;">Мои блоги</h1>
             <a href="{{route('personal.post.create')}}" class="button-primary">Новый блог</a>
         </div>
+        @if(count($posts) == 0)
+            <h1 style="font-size: 20px;text-align: left">Создайте свой первый Пост</h1>
+        @endif
         @foreach($posts as $post)
 
             <div>
-                <img class="post-img pt1" src="{{asset('/images/post1.png')}}">
+
+
+                <img class="post-img pt1" src="{{asset('storage/'.$post->image)}}" style="width: 100%;height: 300px;object-fit: contain;">
                 <div class="settings df jcsb aic">
                     <h2 class="title">{{$post->title}}</h2>
                     <div class="df jcsb aic g2 more-icon">
-                        <img src="{{asset('images/morevertical.svg')}}" style="cursor:pointer;"
+                        <img src="{{url('images/morevertical.svg')}}" style="cursor:pointer;"
                              onclick="ToggleMenu(this)">
                         <p>Еще</p>
                         <div class="more-card g3">
@@ -39,7 +44,7 @@
                 <div class="about-post df jcsb aic">
                     <div class="calendar df jcsb aic g3">
                         <img src="{{asset('/images/calendar.svg')}}">
-                        <h3>26.06.20</h3>
+                            <h3>{{$post->created_at->month}}.{{$post->created_at->day}}.{{$post->created_at->year}}</h3>
                     </div>
                     <div class="eye df jcsb aic g3">
                         <img src="{{asset('/images/eye.svg')}}">
@@ -65,7 +70,7 @@
     </div>
     <div class="category-cards" style="text-align: center">
         <img class="ptb2" style="width: 200px;height: 200px" src="{{asset('/images/ava.png')}}">
-        <h2>Елнур Сеитжанов</h2>
+        <h2>{{auth()->user()->name}}</h2>
         <p class="ptb2">В основно пишу про веб разработку React & Redux</p>
         <p>285 постов за все время</p>
         <div class="df flex-d aic">

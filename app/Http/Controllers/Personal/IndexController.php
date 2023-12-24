@@ -7,6 +7,7 @@ use App\Models\Category;
 use App\Models\Post;
 
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class IndexController extends Controller
@@ -14,9 +15,11 @@ class IndexController extends Controller
     public function __invoke()
     {
         $posts = auth()->user()->posts;
-//        dd($posts);
-//        $createData = Post::all()->pluck('created_at');
-//        dd($createData);
-        return view('personal.index',compact('posts'));
+        $createData = Post::all()->pluck('created_at');
+        foreach ($posts as $post) {
+            $post->created_at = Carbon::parse($post->created_at);
+        }
+
+        return view('personal.index', compact('posts', 'createData'));
     }
 }

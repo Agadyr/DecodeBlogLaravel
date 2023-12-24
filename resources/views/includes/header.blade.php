@@ -7,7 +7,10 @@
         </div>
         <div class="reg-log aic">
             @auth()
-                <img style="width: 50px;height: 50px" src="{{asset('/images/ava.png')}}">
+                <a href="{{route('personal.posts')}}">
+                    <img style="width: 50px;height: 50px" src="{{asset('/images/ava.png')}}">
+                </a>
+
             @endauth
 
             @guest()

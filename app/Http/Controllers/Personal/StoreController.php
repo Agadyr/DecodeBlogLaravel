@@ -19,7 +19,7 @@ class StoreController extends Controller
             'category_id'=>'required|exists:categories,id'
         ]);
         $data['user_id'] = auth()->user()->id;
-        $data['image'] = Storage::put('/images',$data['image']);
+        $data['image'] = Storage::disk('public')->put('/images',$data['image']);
         Post::firstOrCreate($data);
 //        dd($data);
         return redirect()->route('personal.posts');
