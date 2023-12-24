@@ -23,6 +23,13 @@
     display: block;
     padding: 10px 30px 5px 10px;
 }
+.more-link{
+    text-align: left;
+    background: transparent;
+    width: 100%;
+    display: block;
+    padding: 10px 30px 5px 10px;
+}
 .comments h2{
     font-size: 20px;
 }

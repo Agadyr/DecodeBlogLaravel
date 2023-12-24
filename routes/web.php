@@ -28,6 +28,7 @@ Route::group(['namespace' => 'Personal','prefix'=>'personal','middleware'=>'auth
     Route::get('/post/id', 'ShowController');
     Route::get('/post/create', 'CreateController')->name('personal.post.create');
     Route::post('/posts', 'StoreController')->name('personal.post.store');
+    Route::delete('/posts/{post}', 'DeleteController')->name('personal.post.delete');
 });
 Route::group(['namespace' => 'Auth','middleware'=>'guest'], function () {
     Route::get('/register', 'RegisterController')->name('register');

@@ -33,8 +33,12 @@
                              onclick="ToggleMenu(this)">
                         <p>Еще</p>
                         <div class="more-card g3">
-                            <button style="color: black;font-weight: 500;">Редактировать{{$post->id}}</button>
-                            <button style="color: red;font-weight: 500;">Удалить</button>
+                            <a class="more-link" style="color: black;font-weight: 500;">Редактировать{{$post->id}}</a>
+                            <form action="{{route('personal.post.delete',$post->id)}} " method="POST">
+                                @csrf
+                                @method('DELETE')
+                                <button href="" style="color: red;font-weight: 500;margin-bottom: 10px;">Удалить</button>
+                            </form>
                         </div>
                     </div>
 
