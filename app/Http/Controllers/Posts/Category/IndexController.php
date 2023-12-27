@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Posts;
+namespace App\Http\Controllers\Posts\Category;
 
 use App\Http\Controllers\Controller;
 use App\Models\Category;
@@ -10,14 +10,14 @@ use Illuminate\Http\Request;
 
 class IndexController extends Controller
 {
-    public function __invoke()
+    public function __invoke(Category $category)
     {
 
-        $posts = Post::paginate(6);
+        $posts = $category->posts()->paginate(6);
         foreach ($posts as $post) {
             $post->updated_at = Carbon::parse($post->updated_at);
         }
         $categories = Category::all();
-        return view('post.main', compact('posts','categories'));
+        return view('post.category.index', compact('posts','categories'));
     }
 }

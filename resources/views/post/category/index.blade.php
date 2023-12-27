@@ -14,8 +14,8 @@
     @include('includes.header')
     <div class="plr4 df jcsb g3">
             <div class="post-cards">
-                @if(count($posts) == 0)
-                    <h1 style="font-size: 20px;text-align: left">Создайте свой первый Пост</h1>
+                @if(count($posts) <= 0)
+                    <h1 style="font-size: 20px;text-align: left">Не было найдено постов по этой <span style="color: #007bff">Категории</span></h1>
                 @endif
                 @foreach($posts as $post)
                 <h1></h1>

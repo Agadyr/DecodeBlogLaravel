@@ -23,6 +23,9 @@ Route::group(['namespace' => 'Posts','prefix'=>'home'], function () {
         Route::post('/','StoreController')->name('home.comment.store');
     });
 
+    Route::group(['namespace' => 'Category', 'prefix' => 'category'], function () {
+        Route::get('/{category}', 'IndexController')->name('home.category.index');
+    });
 });
 
 

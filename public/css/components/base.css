@@ -9,15 +9,15 @@
     box-sizing: border-box;
 }
 .button-primary-a{
-    background-color: #00A2DC;
-    color: #fff;
-    border: none;
-    font-weight: 400;
-    border-radius: 4px;
-    font-size: 14px;
-    box-sizing: border-box;
-    height: 100%;
-    padding: 12px 10px;
+    background-color: #00A2DC !important;
+    color: #fff !important;
+    border: none !important;
+    font-weight: 400 !important;
+    border-radius: 4px !important;
+    font-size: 14px !important;
+    box-sizing: border-box !important;
+    height: 100% !important;
+    padding: 12px 10px !important;
 
 }
 a{
