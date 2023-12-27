@@ -46,7 +46,7 @@
                 </div>
                 <div class="eye df jcsb aic g3">
                     <img src="{{asset('/images/eye.svg')}}">
-                    <h3>21</h3>
+                    <h3>{{$post->visits}}</h3>
                 </div>
                 <div class="comment df jcsb aic g3">
                     <img src="{{asset('/images/comment.svg')}}">

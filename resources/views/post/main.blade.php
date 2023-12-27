@@ -33,7 +33,14 @@
                         </div>
                         <div class="eye df jcsb aic g3">
                             <img src="{{asset('/images/eye.svg')}}">
-                            <h3>21</h3>
+                            <h3>
+                                @if($post->visits == 0)
+                                    0
+                                @else
+                                    {{$post->visits}}
+                                @endif
+
+                            </h3>
                         </div>
                         <div class="comment df jcsb aic g3">
                             <img src="{{asset('/images/comment.svg')}}">

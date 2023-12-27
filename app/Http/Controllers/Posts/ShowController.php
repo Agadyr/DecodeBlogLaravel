@@ -13,6 +13,11 @@ class ShowController extends Controller
     {
         $post->updated_at = Carbon::parse($post->updated_at);
         $categories = Category::all();
+        if (auth()->user()){
+            $post->visits += 1;
+            $post->save();
+        }
+
         return view('post.show', compact('post','categories'));
     }
 }

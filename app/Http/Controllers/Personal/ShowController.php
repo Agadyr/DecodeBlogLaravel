@@ -15,6 +15,10 @@ class ShowController extends Controller
         $comments = $post->comments;
         $post->updated_at = Carbon::parse($post->updated_at);
         $categories = Category::all();
+        if (auth()->user()){
+            $post->visits += 1;
+            $post->save();
+        }
         return view('personal.show',compact('post','comments','categories'));
     }
 }
