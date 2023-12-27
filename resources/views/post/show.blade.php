@@ -87,11 +87,18 @@
                     это полноценные приложения, которые не требуют дополнительной настройки и кастомизации.
                 </p>
             </div>
+            @auth()
+                <form class="SendComment">
+                    <textarea placeholder="Введите текст комментарий"></textarea>
+                    <button class="button-primary">Отправить</button>
+                </form>
+            @endauth
+            @guest()
+                <div class="not-auth">
+                    <p>Чтобы оставить комментарий <a href="{{route('register')}}">зарегистрируйтесь</a>, или <a href="{{route('login')}}">войдите</a>  в аккаунт.</p>
+                </div>
+            @endguest
 
-            <form class="SendComment">
-                <textarea placeholder="Введите текст комментарий"></textarea>
-                <button class="button-primary">Отправить</button>
-            </form>
         </div>
     </div>
     <div class="category-cards">

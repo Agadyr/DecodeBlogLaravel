@@ -10,7 +10,8 @@ class CreateController extends Controller
 {
     public function __invoke()
     {
-        $categories = Category::all();
-        return view('personal.create',compact('categories'));
+        dd(444);
+//        $categories = Category::all();
+//        return view('personal.create',compact('categories'));
     }
 }

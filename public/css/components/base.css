@@ -81,3 +81,16 @@ input{
     font-size: 12px;
     margin-top: 5px;
 }
+.not-auth{
+    background-color:#FFF3CD;
+    padding: 20px;
+    margin: 10px 0;
+    box-sizing: border-box;
+}
+.not-auth a{
+color: #00A2DC;
+}
+.not-auth p{
+    color:#856404 ;
+    font-weight: 500;
+}
