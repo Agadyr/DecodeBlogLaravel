@@ -23,12 +23,17 @@ Route::group(['namespace' => 'Posts','prefix'=>'home'], function () {
 
 Route::group(['namespace' => 'Personal','prefix'=>'personal','middleware'=>'auth'], function () {
     Route::get('/posts', 'IndexController')->name('personal.posts');
-    Route::get('/post/{post}', 'ShowController')->name('personal.post.show');
     Route::get('/post/create', 'CreateController')->name('personal.post.create');
+    Route::get('/post/{post}', 'ShowController')->name('personal.post.show');
     Route::post('/posts', 'StoreController')->name('personal.post.store');
     Route::delete('/posts/{post}', 'DeleteController')->name('personal.post.delete');
     Route::get('/{post}/edit','EditController')->name('personal.post.edit');
     Route::patch('/{post}','UpdateController')->name('personal.post.update');
+
+
+    Route::group(['namespace'=>'Comment','prefix'=>'{post}/comments'],function (){
+        Route::post('/posts','StoreController')->name('personal.comment.store');
+    });
 });
 Route::group(['namespace' => 'Auth','middleware'=>'guest'], function () {
     Route::get('/register', 'RegisterController')->name('register');

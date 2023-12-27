@@ -11,9 +11,10 @@ class IndexController extends Controller
 {
     public function __invoke()
     {
+
         $posts = Post::all();
         foreach ($posts as $post) {
-            $post->created_at = Carbon::parse($post->created_at);
+            $post->updated_at = Carbon::parse($post->updated_at);
         }
         return view('post.main', compact('posts'));
     }

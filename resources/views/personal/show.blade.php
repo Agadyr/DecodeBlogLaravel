@@ -50,7 +50,7 @@
                 </div>
                 <div class="comment df jcsb aic g3">
                     <img src="{{asset('/images/comment.svg')}}">
-                    <h3>4</h3>
+                    <h3>{{count($comments)}}</h3>
                 </div>
                 <div class="fill df jcsb aic g3">
                     <img src="{{asset('/images/fill.svg')}}">
@@ -61,27 +61,24 @@
                     <h3>{{$post->user->name}}</h3>
                 </div>
             </div>
-            <h3 class="mtb2" style="font-size: 22px;">2 Комментария</h3>
+            <h3 class="mtb2" style="font-size: 22px;">{{count($comments)}} Комментария</h3>
             <div class="comments">
-                <div class="df  aic">
-                    <img src="{{asset('images/ava.png')}}" style="width: 50px;" class="mr2">
-                    <h2>Елнур Сеитжанов</h2>
-                </div>
-                <p class="mtb2">В отличие от обычных виджетов пользовательского интерфейса JavaScript, комплексные виджеты -
-                    это полноценные приложения, которые не требуют дополнительной настройки и кастомизации.
-                </p>
+                @foreach($comments as $comments)
 
                 <div class="df  aic">
                     <img src="{{asset('images/ava.png')}}" style="width: 50px;" class="mr2">
-                    <h2>Елнур Сеитжанов</h2>
+                    <h2>{{$comments->user->name}}</h2>
                 </div>
-                <p class="mtb2">В отличие от обычных виджетов пользовательского интерфейса JavaScript, комплексные виджеты -
-                    это полноценные приложения, которые не требуют дополнительной настройки и кастомизации.
+                <p class="mtb2">
+                    {{$comments->message}}
+
                 </p>
+                @endforeach
             </div>
 
-            <form class="SendComment">
-                <textarea placeholder="Введите текст комментарий"></textarea>
+            <form class="SendComment" action="{{route('personal.comment.store',$post->id)}}" method="POST">
+                @csrf
+                <textarea name="message" placeholder="Введите текст комментарий"></textarea>
                 <button class="button-primary">Отправить</button>
             </form>
         </div>

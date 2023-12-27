@@ -11,8 +11,9 @@ class ShowController extends Controller
 {
     public function __invoke(Post $post)
     {
+        $comments = $post->comments;
         $updated_at = Post::all()->pluck('created_at');
         $post->updated_at = Carbon::parse($post->updated_at);
-        return view('personal.show',compact('post','updated_at'));
+        return view('personal.show',compact('post','updated_at','comments'));
     }
 }

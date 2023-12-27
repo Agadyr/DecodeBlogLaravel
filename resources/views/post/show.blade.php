@@ -56,7 +56,7 @@
                 </div>
                 <div class="comment df jcsb aic g3">
                     <img src="{{asset('/images/comment.svg')}}">
-                    <h3>4</h3>
+                    <h3>{{count($post->comments)}}</h3>
                 </div>
                 <div class="fill df jcsb aic g3">
                     <img src="{{asset('/images/fill.svg')}}">
@@ -67,30 +67,23 @@
                     <h3>{{$post->user->name}}</h3>
                 </div>
             </div>
-            <h3 class="mtb2" style="font-size: 22px;">2 Комментария</h3>
+            <h3 class="mtb2" style="font-size: 22px;">{{count($post->comments)}} Комментария</h3>
             <div class="comments">
-                <div class="df  aic">
-                    <img src="{{asset('images/ava.png')}}" style="width: 50px;" class="mr2">
-                    <h2>Елнур Сеитжанов</h2>
-                </div>
-                <p class="mtb2">В отличие от обычных виджетов пользовательского интерфейса JavaScript, комплексные
-                    виджеты -
-                    это полноценные приложения, которые не требуют дополнительной настройки и кастомизации.
-                </p>
-
-                <div class="df  aic">
-                    <img src="{{asset('images/ava.png')}}" style="width: 50px;" class="mr2">
-                    <h2>Елнур Сеитжанов</h2>
-                </div>
-                <p class="mtb2">В отличие от обычных виджетов пользовательского интерфейса JavaScript, комплексные
-                    виджеты -
-                    это полноценные приложения, которые не требуют дополнительной настройки и кастомизации.
-                </p>
+                @foreach($post->comments as $comment)
+                    <div class="df  aic">
+                        <img src="{{asset('images/ava.png')}}" style="width: 50px;" class="mr2">
+                        <h2>{{$comment->user->name}}</h2>
+                    </div>
+                    <p class="mtb2">
+                        {{$comment->message}}
+                    </p>
+                @endforeach
             </div>
             @auth()
-                <form class="SendComment">
-                    <textarea placeholder="Введите текст комментарий"></textarea>
-                    <button class="button-primary">Отправить</button>
+                <form class="SendComment" method="POST" action="{{route('personal.comment.store',$post->id)}}">
+                    @csrf
+                    <textarea name="message" placeholder="Введите текст комментарий"></textarea>
+                    <button type="submit" class="button-primary">Отправить</button>
                 </form>
             @endauth
             @guest()

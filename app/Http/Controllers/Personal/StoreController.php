@@ -12,6 +12,8 @@ class StoreController extends Controller
 {
     public function __invoke(Request $request)
     {
+
+
         $data = $request->validate([
             'title'=>'required|string',
             'content'=>'required|string',

@@ -25,7 +25,7 @@
                     <div class="about-post df jcsb aic">
                         <div class="calendar df jcsb aic g3">
                             <img src="{{asset('/images/calendar.svg')}}">
-                            <h3>{{$post->created_at->month}}.{{$post->created_at->day}}.{{$post->created_at->year}}</h3>
+                            <h3>{{$post->updated_at->month}}.{{$post->updated_at->day}}.{{$post->updated_at->year}}</h3>
                         </div>
                         <div class="eye df jcsb aic g3">
                             <img src="{{asset('/images/eye.svg')}}">
@@ -33,11 +33,11 @@
                         </div>
                         <div class="comment df jcsb aic g3">
                             <img src="{{asset('/images/comment.svg')}}">
-                            <h3>4</h3>
+                            <h3>{{count($post->comments)}}</h3>
                         </div>
                         <div class="fill df jcsb aic g3">
                             <img src="{{asset('/images/fill.svg')}}">
-                            <h3>Веб разработка</h3>
+                            <h3>{{$post->category->title}}</h3>
                         </div>
                         <div class="usersShow df jcsb aic g3">
                             <img src="{{asset('/images/Vector.svg')}}">
