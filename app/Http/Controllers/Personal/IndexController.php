@@ -14,7 +14,7 @@ class IndexController extends Controller
 {
     public function __invoke()
     {
-        $posts = auth()->user()->posts;
+        $posts = auth()->user()->posts()->paginate(6);
         $updated_at = Post::all()->pluck('created_at');
         foreach ($posts as $post) {
             $post->updated_at = Carbon::parse($post->updated_at);

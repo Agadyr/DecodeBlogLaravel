@@ -6,6 +6,8 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+
+    <link rel="stylesheet" href="{{asset('css/app.css')}}">
     <link href="{{asset('css/all.css')}}">
     <link rel="stylesheet" href="../../css/all.css">
 </head>
@@ -25,7 +27,7 @@
             <div>
                 <a href="{{route('personal.post.show',$post->id)}}">
                     <img class="post-img pt1" src="{{asset('storage/'.$post->image)}}"
-                         style="width: 100%;height: 300px;object-fit: contain;">
+                         style="width: 100%;height: 400px;object-fit: contain;">
                 </a>
                 <div class="settings df jcsb aic">
                     <h2 class="title">{{$post->title}}</h2>
@@ -68,14 +70,19 @@
                     </div>
                     <div class="usersShow df jcsb aic g3">
                         <img src="{{asset('/images/Vector.svg')}}">
-                        <h3>{{auth()->user()->name}}</h3>
+                        <h3 class="fw-bolder">{{auth()->user()->name}}</h3>
                     </div>
                 </div>
             </div>
         @endforeach
+        <div class="mtb2">
+            {{ $posts->links() }}
+        </div>
+
+
     </div>
     <div class="category-cards" style="text-align: center">
-        <img class="ptb2" style="width: 200px;height: 200px" src="{{asset('/images/ava.png')}}">
+        <img class="ptb2" style="width: 200px !important;height: 250px !important;" src="{{asset('/images/ava.png')}}">
         <h2>{{auth()->user()->name}}</h2>
         <p class="ptb2">В основно пишу про веб разработку React & Redux</p>
         <p>{{count($posts)}} постов за все время</p>

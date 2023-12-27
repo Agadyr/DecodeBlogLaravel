@@ -12,7 +12,7 @@ class IndexController extends Controller
     public function __invoke()
     {
 
-        $posts = Post::all();
+        $posts = Post::paginate(6);
         foreach ($posts as $post) {
             $post->updated_at = Carbon::parse($post->updated_at);
         }
