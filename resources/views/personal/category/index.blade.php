@@ -56,7 +56,7 @@
         <div class="category-cards">
             <h1>Категории</h1>
             @foreach($categories as $category)
-                <a class="category-item" href="{{route('personal.category.index',$category->id)}}">{{$category->title}}</a>
+                <a class="category-item"  href="{{route('personal.category.index',$category->id)}}">{{$category->title}}</a>
             @endforeach
         </div>
     </div>
