@@ -11,7 +11,6 @@ class ShowController extends Controller
     public function __invoke(Post $post)
     {
         $post->updated_at = Carbon::parse($post->updated_at);
-
         return view('post.show', compact('post'));
     }
 }

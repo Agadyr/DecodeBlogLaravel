@@ -18,6 +18,11 @@ Route::group(['namespace' => 'Posts','prefix'=>'home'], function () {
     Route::get('/posts', 'IndexController')->name('posts');
     Route::get('/{post}', 'ShowController')->name('post.show');
 
+
+    Route::group(['namespace'=>'Comment','prefix'=>'{post}/comments'],function (){
+        Route::post('/','StoreController')->name('home.comment.store');
+    });
+
 });
 
 

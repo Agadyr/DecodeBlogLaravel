@@ -63,16 +63,21 @@
             </div>
             <h3 class="mtb2" style="font-size: 22px;">{{count($comments)}} Комментария</h3>
             <div class="comments">
-                @foreach($comments as $comments)
+                @foreach($comments as $comment)
 
                 <div class="df  aic">
                     <img src="{{asset('images/ava.png')}}" style="width: 50px;" class="mr2">
-                    <h2>{{$comments->user->name}}</h2>
+                    <h2>{{$comment->user->name}}</h2>
                 </div>
-                <p class="mtb2">
-                    {{$comments->message}}
+                <div class="df aic jcsb">
+                    <p class="mtb2">
+                        {{$comment->message}}
+                    </p>
+                    <p style="color: #6b7280;font-size: 14px;">
+                        {{$comment->DateAsCarbon->diffForHumans()}}
+                    </p>
+                </div>
 
-                </p>
                 @endforeach
             </div>
 

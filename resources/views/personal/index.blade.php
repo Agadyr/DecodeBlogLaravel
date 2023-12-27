@@ -58,7 +58,7 @@
                     </div>
                     <div class="comment df jcsb aic g3">
                         <img src="{{asset('/images/comment.svg')}}">
-                        <h3>4</h3>
+                        <h3>{{count($post->comments)}}</h3>
                     </div>
                     <div class="fill df jcsb aic g3">
                         <img src="{{asset('/images/fill.svg')}}">
@@ -78,7 +78,7 @@
         <img class="ptb2" style="width: 200px;height: 200px" src="{{asset('/images/ava.png')}}">
         <h2>{{auth()->user()->name}}</h2>
         <p class="ptb2">В основно пишу про веб разработку React & Redux</p>
-        <p>285 постов за все время</p>
+        <p>{{count($posts)}} постов за все время</p>
         <div class="df flex-d aic">
             <button class="button-primary mt2 mb1" style="padding: 14px 17px!important;">Редактировать</button>
             <form action="{{route('logout')}}" method="post">

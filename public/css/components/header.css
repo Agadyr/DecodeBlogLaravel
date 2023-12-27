@@ -7,7 +7,7 @@
 .header button{
     height: 40px;
 }
-.header h1{
+.header a{
     font-size: 50px;
     font-weight: 500;
     color: #00A2DC;

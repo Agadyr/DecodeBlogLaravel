@@ -1,6 +1,6 @@
 <div class="bg">
     <div class="header plr4 df jcsb aic pt1">
-        <h1>Decode Blog</h1>
+        <a href="{{route('posts')}}">Decode Blog</a>
         <div class="search-header">
             <input type="text" value="Поиск по Блогам">
             <button class="button-primary jcsb aic"> <img src="../../images/search.svg" > Найти</button>

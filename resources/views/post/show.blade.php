@@ -20,10 +20,10 @@
                  style="max-width: 861px;width: 100%;height: 400px;object-fit: cover;">
 
 
-                    <div class="settings df jcsb aic">
-                        <h2 class="title">{{$post->title}}</h2>
-                        @auth()
-                            @if(Auth()->user()->name == $post->user->name)
+            <div class="settings df jcsb aic">
+                <h2 class="title">{{$post->title}}</h2>
+                @auth()
+                    @if(Auth()->user()->name == $post->user->name)
                         <div class="df jcsb aic g2 more-icon">
                             <img src="{{asset('images/morevertical.svg')}}" style="cursor:pointer;"
                                  onclick="ToggleMenu()">
@@ -39,9 +39,9 @@
                                 </form>
                             </div>
                         </div>
-                            @endif
-                        @endauth
-                    </div>
+                    @endif
+                @endauth
+            </div>
 
 
             <p class="description">{{$post->content}} </p>
@@ -74,13 +74,20 @@
                         <img src="{{asset('images/ava.png')}}" style="width: 50px;" class="mr2">
                         <h2>{{$comment->user->name}}</h2>
                     </div>
-                    <p class="mtb2">
-                        {{$comment->message}}
-                    </p>
+                    <div class="df aic jcsb">
+                        <p class="mtb2">
+                            {{$comment->message}}
+                        </p>
+                        <p style="color: #6b7280;font-size: 14px;">
+
+                            {{$comment->DateAsCarbon->diffForHumans()}}
+                        </p>
+                    </div>
+
                 @endforeach
             </div>
             @auth()
-                <form class="SendComment" method="POST" action="{{route('personal.comment.store',$post->id)}}">
+                <form class="SendComment" method="POST" action="{{route('home.comment.store',$post->id)}}">
                     @csrf
                     <textarea name="message" placeholder="Введите текст комментарий"></textarea>
                     <button type="submit" class="button-primary">Отправить</button>
@@ -88,7 +95,8 @@
             @endauth
             @guest()
                 <div class="not-auth">
-                    <p>Чтобы оставить комментарий <a href="{{route('register')}}">зарегистрируйтесь</a>, или <a href="{{route('login')}}">войдите</a>  в аккаунт.</p>
+                    <p>Чтобы оставить комментарий <a href="{{route('register')}}">зарегистрируйтесь</a>, или <a
+                            href="{{route('login')}}">войдите</a> в аккаунт.</p>
                 </div>
             @endguest
 
