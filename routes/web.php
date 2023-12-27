@@ -42,6 +42,9 @@ Route::group(['namespace' => 'Personal','prefix'=>'personal','middleware'=>'auth
     Route::group(['namespace'=>'Comment','prefix'=>'{post}/comments'],function (){
         Route::post('/posts','StoreController')->name('personal.comment.store');
     });
+    Route::group(['namespace' => 'Category', 'prefix' => 'category'], function () {
+        Route::get('/{category}', 'IndexController')->name('personal.category.index');
+    });
 });
 Route::group(['namespace' => 'Auth','middleware'=>'guest'], function () {
     Route::get('/register', 'RegisterController')->name('register');
