@@ -104,16 +104,10 @@
     </div>
     <div class="category-cards">
         <h1>Категории</h1>
-        <a class="category-item" href="#">Прогнозы в IT</a>
-        <a class="category-item" href="#">Веб-разработка</a>
-        <a class="category-item" href="#">Мобильная разработка</a>
-        <a class="category-item" href="#">Фриланс</a>
-        <a class="category-item" href="#">Алгоритмы</a>
-        <a class="category-item" href="#">Тестирование IT систем</a>
-        <a class="category-item" href="#">Разработка игр</a>
-        <a class="category-item" href="#">Дизайн и юзабилити</a>
-        <a class="category-item" href="#">Искуственный интелект</a>
-        <a class="category-item pb1" href="#">Машинное обучение</a>
+        @foreach($categories as $category)
+            <a class="category-item" href="{{route('home.category.index',$category->id)}}">{{$category->title}}</a>
+        @endforeach
+
     </div>
 </div>
 <script>
