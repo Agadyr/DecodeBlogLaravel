@@ -12,8 +12,6 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-
 Route::group(['namespace' => 'Posts','prefix'=>'home'], function () {
     Route::get('/posts', 'IndexController')->name('posts');
     Route::get('/{post}', 'ShowController')->name('post.show');
@@ -41,11 +39,18 @@ Route::group(['namespace' => 'Personal','prefix'=>'personal','middleware'=>'auth
 
     Route::group(['namespace'=>'Comment','prefix'=>'{post}/comments'],function (){
         Route::post('/posts','StoreController')->name('personal.comment.store');
+
     });
+    Route::group(['namespace'=>'Comment','prefix'=>'comments'],function (){
+        Route::delete('/{comment}','DeleteController')->name('personal.comment.delete');
+
+    });
+
     Route::group(['namespace' => 'Category', 'prefix' => 'category'], function () {
         Route::get('/{category}', 'IndexController')->name('personal.category.index');
     });
 });
+
 Route::group(['namespace' => 'Auth','middleware'=>'guest'], function () {
     Route::get('/register', 'RegisterController')->name('register');
     Route::post('/register', 'RegisterStoreController')->name('register.store');

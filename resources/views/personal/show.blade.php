@@ -26,7 +26,8 @@
                     <img src="{{asset('images/morevertical.svg')}}" style="cursor:pointer;" onclick="ToggleMenu()">
                     <p>Еще</p>
                     <div class="more-card g3">
-                        <a href="{{route('personal.post.edit',$post->id)}}" class="more-link" style="color: black;font-weight: 500;">Редактировать{{$post->id}}</a>
+                        <a href="{{route('personal.post.edit',$post->id)}}" class="more-link"
+                           style="color: black;font-weight: 500;">Редактировать{{$post->id}}</a>
                         <form action="{{route('personal.post.delete',$post->id)}} " method="POST">
                             @csrf
                             @method('DELETE')
@@ -65,18 +66,29 @@
             <div class="comments">
                 @foreach($comments as $comment)
 
-                <div class="df  aic">
-                    <img src="{{asset('images/ava.png')}}" style="width: 50px;" class="mr2">
-                    <h2>{{$comment->user->name}}</h2>
-                </div>
-                <div class="df aic jcsb">
-                    <p class="mtb2">
-                        {{$comment->message}}
-                    </p>
-                    <p style="color: #6b7280;font-size: 14px;">
-                        {{$comment->DateAsCarbon->diffForHumans()}}
-                    </p>
-                </div>
+                    <div class="df  aic jcsb">
+                        <div>
+                            <img src="{{asset('images/ava.png')}}" style="width: 50px;" class="mr2">
+                            <h2>{{$comment->user->name}}</h2>
+                        </div>
+
+
+                        <form class="delete" method="POST" action="{{route('personal.comment.delete',$comment->id)}}">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" style="color: #ff2821;background: transparent" >
+                                Удалить
+                            </button>
+                        </form>
+                    </div>
+                    <div class="df aic jcsb">
+                        <p class="mtb2">
+                            {{$comment->message}}
+                        </p>
+                        <p style="color: #6b7280;font-size: 14px;">
+                            {{$comment->DateAsCarbon->diffForHumans()}}
+                        </p>
+                    </div>
 
                 @endforeach
             </div>
@@ -88,7 +100,7 @@
             </form>
         </div>
     </div>
-    <div class="category-cards" >
+    <div class="category-cards">
         <h1>Категории</h1>
         @foreach($categories as $category)
             <a class="category-item" href="{{route('personal.category.index',$category->id)}}">{{$category->title}}</a>
@@ -97,7 +109,7 @@
 </div>
 <script>
 
-    function ToggleMenu(){
+    function ToggleMenu() {
         let drop1 = document.querySelector('.more-card')
         if (drop1.style.display === 'none' || drop1.style.display === '') {
             drop1.style.display = 'block';
