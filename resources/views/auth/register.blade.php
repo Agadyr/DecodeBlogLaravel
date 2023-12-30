@@ -50,6 +50,11 @@
 
         <button type="submit" class="button-primary mtb2" style="width: 100%">Зарегистрироваться</button>
 
+        <a href="{{route('auth.github')}}">
+            <img src="{{asset('images/github-mark.png')}}" style="width: 50px;text-align: center;margin: 12px 0">
+            <h2 style="color: #1a202c">Registraation with GitHub</h2>
+        </a>
+
     </form>
 </div>
 <script src="https://kit.fontawesome.com/46e5ccd8d3.js" crossorigin="anonymous"></script>

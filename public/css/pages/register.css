@@ -27,10 +27,10 @@
     text-align: center;
     width: 300px;
 }
-.register-form h1{
+.register h1{
     font-weight: 500;
     font-size: 36px;
-    padding-bottom: 30px;
+    padding-bottom: 10px;
 }
 .input-red{
     border:1px solid red ;

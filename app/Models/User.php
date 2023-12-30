@@ -41,11 +41,23 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-    public function posts(){
+
+    public function posts()
+    {
         return $this->hasMany(Post::class);
     }
 
-    public function comments(){
-        return $this->hasMany(Comment::class,'user_id','id');
+    public function comments()
+    {
+        return $this->hasMany(Comment::class, 'user_id', 'id');
+    }
+
+    protected $attributes = [
+        'password' => 'your_default_value',
+    ];
+
+    public function setPasswordAttribute($value)
+    {
+        $this->attributes['password'] = bcrypt($value);
     }
 }

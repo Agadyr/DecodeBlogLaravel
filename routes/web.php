@@ -1,6 +1,9 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Route;
+use Laravel\Socialite\Facades\Socialite;
 
 /*
 |--------------------------------------------------------------------------
@@ -60,4 +63,19 @@ Route::group(['namespace' => 'Auth','middleware'=>'guest'], function () {
 });
 Route::group(['namespace' => 'Auth', 'middleware' => 'auth'], function () {
     Route::post('/logout', 'LogoutController')->name('logout');
+});
+
+Route::get('/auth/redirect', function () {
+    return Socialite::driver('github')->redirect();
+})->name('auth.github');
+
+Route::get('/auth/callback', function () {
+    $user = Socialite::driver('github')->user();
+    $user = \App\Models\User::firstOrCreate(['email'=>$user->email],([
+        'name'=> $user->name,
+        'email'=> $user->email,
+        'password'=> Hash::make(Str::random(10)),]
+    ));
+    Auth::login($user);
+    return redirect()->route('personal.posts');
 });
