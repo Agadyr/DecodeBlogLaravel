@@ -82,7 +82,7 @@
             </div>
         @endforeach
         <div class="mtb2">
-            {{ $posts->links() }}
+            {{ $posts->appends(['s' => request()->s])->links() }}
         </div>
 
 

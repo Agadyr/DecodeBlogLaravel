@@ -1,14 +1,12 @@
 <div class="bg">
     <div class="header plr4 df jcsb aic pt1">
         <a href="{{route('posts')}}">Decode Blog</a>
-        @auth()
-        <form method="get" action="{{route('personal.search')}}">
-            <div class="search-header">
-                <input name="s" id="s" type="text" value="" placeholder="Поиск по блогам">
-                <button type="submit" class="button-primary jcsb aic"> <img src="../../images/search.svg" > Найти</button>
-            </div>
-        </form>
-        @endauth
+            <form method="get" action="{{route('home.search')}}">
+                <div class="search-header">
+                    <input name="s" id="s" type="text" value="" placeholder="Поиск по блогам">
+                    <button type="submit" class="button-primary jcsb aic"> <img src="../../images/search.svg" > Найти</button>
+                </div>
+            </form>
 
 
 

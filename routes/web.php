@@ -17,6 +17,7 @@ use Laravel\Socialite\Facades\Socialite;
 */
 Route::group(['namespace' => 'Posts','prefix'=>'home'], function () {
     Route::get('/posts', 'IndexController')->name('posts');
+    Route::get('/search', 'SearchController')->name('home.search');
     Route::get('/{post}', 'ShowController')->name('post.show');
 
 
@@ -32,6 +33,7 @@ Route::group(['namespace' => 'Posts','prefix'=>'home'], function () {
 
 Route::group(['namespace' => 'Personal','prefix'=>'personal','middleware'=>'auth'], function () {
     Route::get('/posts', 'IndexController')->name('personal.posts');
+    Route::get('/search', 'SearchController')->name('personal.search');
     Route::get('/post/create', 'CreateController')->name('personal.post.create');
     Route::get('/post/{post}', 'ShowController')->name('personal.post.show');
     Route::post('/posts', 'StoreController')->name('personal.post.store');
